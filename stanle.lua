@@ -4453,7 +4453,7 @@ end
 if text == "السورس" or text == "سورس" then
 Text = [[
 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ 𝘀ᴏᴜʀᴄʀ 𝘀𝘁𝗮𝗻𝗹𝗲
-[✫  𝘀𝘁𝗮𝗻𝗹𝗲 ᴄʜᴀɴɴᴇʟ](https://t.me/TRR8T)
+ [✫  𝘀𝘁𝗮𝗻𝗹𝗲 ᴄʜᴀɴɴᴇʟ](https://t.me/TRR8T)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -4461,7 +4461,7 @@ keyboard.inline_keyboard = {
 {{text = '✫  𝘀𝘁𝗮𝗻𝗹𝗲 ᴅᴇᴠᴇʟᴏᴘᴇʀ',url="t.me/NNLNNN"},{text = '✫  ʙᴏᴛ 𝘀𝘁𝗮𝗻𝗹𝗲',url="https://t.me/SiTmelanobot"}},{{text= '✫  ɪɴғᴏ 𝘀ᴏᴜʀᴄᴇ .',url="https://t.me/MiLaNoTam"}}
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/stanleTEAM&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/TT888&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 --     Source stanle     --

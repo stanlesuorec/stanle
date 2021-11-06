@@ -4603,34 +4603,31 @@ if text == "ايدي المجموعه" and ChCheck(msg) then Dev_Abs(msg.chat_id
 if text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' or text == 'حذف سحكاتي' or text == 'حذف تعديلاتي' then DevAbs:del(stanle..'Abs:EditMsg'..msg.chat_id_..msg.sender_user_id_) Dev_Abs(msg.chat_id_, msg.id_, 1, '⌔︙تم حذف جميع تعديلاتك بنجاح' , 1, 'md') end
 if text == 'مسح جهاتي' or text == 'مسح اضافاتي' or text == 'حذف جهاتي' or text == 'حذف اضافاتي' then DevAbs:del(stanle..'Abs:ContactNumber'..msg.chat_id_..':'..msg.sender_user_id_) Dev_Abs(msg.chat_id_, msg.id_, 1, '⌔︙تم حذف جميع جهاتك المضافه' , 1, 'md') end
 --     Source stanle     --
-if text == "المطور" then 
-local DevText = DevAbs:get(stanle.."DevText")
-if DevAbs:get(stanle.."Abs:ChId") then local Check = https.request('https://api.telegram.org/bot'..TokenBot..'/getChat?chat_id='..DevAbs:get(stanle.."Abs:ChId")) local GetInfo = JSON.decode(Check) local DevCh1 = GetInfo.result.username DevCh = '\n⌔︙*Dev Ch* ↬ [@'..DevCh1..']' else DevCh = '' end
-tdcli_function({ID="GetUser",user_id_=DevId},function(arg,dp) 
-if dp.username_ ~= false then DevUser = '@'..dp.username_ else DevUser = dp.first_name_ end
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = DevId,offset_ = 0,limit_ = 1},function(extra,abbas,success) 
+if text == "المطور" or text == "مطور" or text == "↫ المطور ᥀" then
+local Check = https.request('https://api.telegram.org/bot'..TokenBot..'/getChat?chat_id='..DevAbs:get(stanle.."Rio:ChId"))
+local GetInfo = JSON.decode(Check)
+local DevCh1 = GetInfo.result.username
+local DevText = DevRio:get(stanle.."DevText")
+if DevAbs:get(stanle.."Rio:ChId") then DevCh = '\n᥀︙*Dev Ch* ↬ [@'..DevCh1..']' else DevCh = '' end
 if DevText then
-if abbas.photos_[0] then
-keyboard = {} 
-keyboard.inline_keyboard = {{{text=dp.first_name_,url=("t.me/"..dp.username_ or "t.me/TRR8T")}}}
+Dev_Abs(msg.chat_id_, msg.id_,DevText)
+else
+tdcli_function({ID="GetUser",user_id_=DevId},function(arg,result)
+tdcli_function({ID = "GetUserProfilePhotos",user_id_=DevId,offset_=0,limit_ = 1},function(arg,getpro) 
+if getpro.photos_[0] then
+Text = "*᥀︙Dev Name ↬ * ["..result.first_name_.."](t.me/"..result.username_..")\n*᥀︙Dev User ↬* [@"..result.username_.."]\n*᥀︙Dev Ch ↬* [@"..DevCh1.."]"
+keyboard = {}
+keyboard.inline_keyboard = {{{text=''..result.first_name_..'',url="https://t.me/"..result.username_..""}}}
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id='..msg.chat_id_..'&photo='..abbas.photos_[0].sizes_[1].photo_.persistent_id_..'&caption='..URL.escape(DevText).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(Text)..'&photo='..getpro.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 else
-Dev_Abs(msg.chat_id_, msg.id_, 1, DevText, 1, "md")
+Dev_Abs(msg.chat_id_, msg.id_, 1, '᥀︙*Dev User* ↬ ['..DevUser..']\n᥀︙*Dev Id* ↬ '..DevId..DevCh, 1, "md")
 end
-else
-if abbas.photos_[0] then
-keyboard = {} 
-keyboard.inline_keyboard = {{{text=dp.first_name_,url=("t.me/"..dp.username_ or "t.me/TRR8T")}}}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id='..msg.chat_id_..'&photo='..abbas.photos_[0].sizes_[1].photo_.persistent_id_..'&caption='..URL.escape('⌔︙*Dev User* ↬ ['..DevUser..']\n⌔︙*Dev Id* ↬ '..DevId..DevCh).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-else
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌔︙*Dev User* ↬ ['..DevUser..']\n⌔︙*Dev Id* ↬ '..DevId..DevCh, 1, "md")
+end,nil)   
+end,nil)   
 end
 end
-end,nil)
-end,nil)
-end 
+
 if text == "مبرمج السورس" or text == "مطور السورس" or text == "المبرمج" then 
 Text = "• *The developer and programmer of this source is* : [✫  𝘀𝘁𝗮𝗻𝗹𝗲 ᴅᴇᴠᴇʟᴏᴘᴇʀ](https://t.me/NNLNNN)."
 keyboard = {} 
